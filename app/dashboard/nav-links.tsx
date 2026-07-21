@@ -4,9 +4,18 @@ import {
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
- 
-// ...
- 
+
+// 1. Définition du tableau 'links' qui manquait
+const links = [
+  { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  {
+    name: 'Invoices',
+    href: '/dashboard/invoices',
+    icon: DocumentDuplicateIcon,
+  },
+  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+];
+
 export default function NavLinks() {
   return (
     <>
@@ -20,7 +29,7 @@ export default function NavLinks() {
           >
             <LinkIcon className="w-6" />
             <p className="hidden md:block">{link.name}</p>
-          </Link>
+          </Link> // 2. Fermeture correcte de la balise Link
         );
       })}
     </>
